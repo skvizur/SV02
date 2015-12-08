@@ -7,4 +7,6 @@ for line in f:
 
 print(lst)
 
+print(mer finnst ogedslega gaman i thessu)
+
 f.close()
