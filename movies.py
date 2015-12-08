@@ -1,12 +1,13 @@
+import pandas as pd
+
 f = open('movies.dat', 'r')
 
-lst = []
+cols = ['MovieID','Title', 'Genres']
 
-for line in f:
-	lst += [line.split()]
+movies_table = pd.read_table(r'movies.dat', sep='::', header = None, names = cols)
 
-print(lst)
+print(movies_table)
 
-print(mer finnst ogedslega gaman i thessu)
+
 
 f.close()
