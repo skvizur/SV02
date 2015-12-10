@@ -20,9 +20,9 @@ primary key (movie_id, user_id)
 );
 
 create table genre_id (
-movie_id integer references movies(movieid),
+movies_id integer references movies(movieid),
 genreid integer,
-primary key (movie_id)
+primary key (movies_id,genreid)
 );
 
 
