@@ -123,16 +123,16 @@ with open('users.dat') as infile:
 outfile = open('movies_demo.sql','w')
 
 for s in movie_table:
-	outfile.write("insert into movies (movieid, title, year) values('{}','{}','{}')\n".format(movie_table[s]['movieid'],movie_table[s]['title'].strip().replace("'","''"),movie_table[s]['year'].strip()))
+	cursor.execute("insert into movies (movieid, title, year) values('{}','{}','{}')\n".format(movie_table[s]['movieid'],movie_table[s]['title'].strip().replace("'","''"),movie_table[s]['year'].strip()))
 
 for a in user_table:
-	outfile.write("insert into username (userid, gender, age, occupation) values('{}','{}','{}','{}')\n".format(user_table[a]['userid'],user_table[a]['gender'],user_table[a]['age'],user_table[a]['occupation'].strip()))
+	cursor.execute("insert into username (userid, gender, age, occupation) values('{}','{}','{}','{}')\n".format(user_table[a]['userid'],user_table[a]['gender'],user_table[a]['age'],user_table[a]['occupation'].strip()))
 
 for b in rating_table:
-	outfile.write("insert into rating (user_id, movie_id, rating) values('{}','{}','{}')\n".format(rating_table[b]['user_id'],rating_table[b]['movie_id'],rating_table[b]['rating'].strip()))
+	cursor.execute("insert into rating (user_id, movie_id, rating) values('{}','{}','{}')\n".format(rating_table[b]['user_id'],rating_table[b]['movie_id'],rating_table[b]['rating'].strip()))
 
 for k in movieid_genresid:
-	outfile.write("insert into genre_id (movies_id, genreid) values('{}','{}')\n".format(movieid_genresid[k]['movies_id'],movieid_genresid[k]['genreid']))
+	cursor.execute("insert into genre_id (movies_id, genreid) values('{}','{}')\n".format(movieid_genresid[k]['movies_id'],movieid_genresid[k]['genreid']))
 
 outfile.close()
 
