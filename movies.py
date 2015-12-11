@@ -95,29 +95,6 @@ for line in f:
 
 f.close()
 
-#TILLAGA AD TOFLU MED OLLUM TYPUM GENRES
-
-#genre_table = {}
-#result = {}
-#k = 0
-#a = 0
-
-#with open('movies.dat') as infile:
-#	for line in infile:
-#		parts2 = line.split('::')
-#		if len(line) > 1:
-#			genre = parts2[2].split('|')
-#			for i in genre:
-#				genre_table[k] = {'Genre':i.strip()}
-#				k += 1
-#			for key,value in genre_table.items():
-#				if value not in result.values():
-#					result[key] = value
-#					print(result[key])
-	
-
-
-
 #GRUNNUR AD RATING TÖFLLU					
 index = 0
 rating_table = {}
@@ -146,7 +123,7 @@ with open('users.dat') as infile:
 outfile = open('movies_demo.sql','w')
 
 for s in movie_table:
-	outfile.write("insert into movies (movieid, title, year) values('{}','{}','{}')\n".format(movie_table[s]['movieid'],movie_table[s]['title'].replace("'","''"),movie_table[s]['year'].strip()))
+	outfile.write("insert into movies (movieid, title, year) values('{}','{}','{}')\n".format(movie_table[s]['movieid'],movie_table[s]['title'].strip().replace("'","''"),movie_table[s]['year'].strip()))
 
 for a in user_table:
 	outfile.write("insert into username (userid, gender, age, occupation) values('{}','{}','{}','{}')\n".format(user_table[a]['userid'],user_table[a]['gender'],user_table[a]['age'],user_table[a]['occupation'].strip()))
